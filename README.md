@@ -54,3 +54,31 @@ Command:
 "curl -s -o /dev/null -w "Response time : %{time_total} seconds\n" GET http://localhost:8280/test"
 (a) All of 1000 rows : 0.021102 seconds = 21.102 ms
 (b) Self Join : NA
+
+
+# hardware and OS info
+
+Architecture:            x86_64
+  CPU op-mode(s):        32-bit, 64-bit
+  Address sizes:         39 bits physical, 48 bits virtual
+  Byte Order:            Little Endian
+CPU(s):                  4
+  On-line CPU(s) list:   0-3
+Vendor ID:               GenuineIntel
+  Model name:            Intel(R) Core(TM) i5-6500T CPU @ 2.50GHz
+    CPU family:          6
+    Model:               94
+    Thread(s) per core:  1
+    Core(s) per socket:  4
+    Socket(s):           1
+    Stepping:            3
+    CPU max MHz:         3100.0000
+    CPU min MHz:         800.0000
+    BogoMIPS:            4999.90
+Virtualization features: 
+  Virtualization:        VT-x
+Caches (sum of all):     
+  L1d:                   128 KiB (4 instances)
+  L1i:                   128 KiB (4 instances)
+  L2:                    1 MiB (4 instances)
+  L3:                    6 MiB (1 instance)
