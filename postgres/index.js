@@ -7,7 +7,7 @@ const app = express()
 const client = new Client({
     user: 'postgres', // default user
     host: '0.0.0.0', //  container port
-    database: 'postgres',
+    database: 'performance',
     password: 'mysecret',
     port: 5432,
 })
@@ -20,10 +20,14 @@ client.connect()
 
 app.get('/data', (req,res) => {
 
-    // const queryUsers = `SELECT * FROM users;`
+    const queryAll = `SELECT * FROM test_one;`
+    const querySelfJoin = `SELECT t1.*, t2.* FROM test_one t1 JOIN test_one t2 ON t1.sequence = t2.sequence;`
+    const querySelfConditionalJoin = `SELECT t1.*, t2.* FROM test_one t1 LEFT JOIN test_one t2
+                                                    ON t1.sequence = t2.sequence
+                                                    WHERE t2.sequence > t1.sequence;`
 
-    client.query(query)
-    .then(result => { console.log('Query Result',result) })
+    client.query(querySelfConditionalJoin)
+    .then(result => { console.log('Query Result') })
     .catch(err => { console.error('Query Error',err) })
     .finally(() => {
         client.end()
@@ -32,4 +36,6 @@ app.get('/data', (req,res) => {
 })
 
 })
+
+app.listen(8240, () => {console.log('Listening on port 8240')})
 
