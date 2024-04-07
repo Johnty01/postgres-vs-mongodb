@@ -23,6 +23,8 @@ Performance benchmark comparisons between two of the most used RDBMS and NoSQL D
 8. \dt
 9. curl -s -o /dev/null -w "Response time : %{time_total} seconds\n" GET http://localhost:8240/data
 Response times:
+Command: 
+"curl -s -o /dev/null -w "Response time : %{time_total} seconds\n" GET http://localhost:8240/data"
 (a) All of 1000 rows : 0.018906 seconds = 18.906 ms
 (b) Self Join on 1000 rows : 0.811307 seconds = 811.307 ms
 (c) Self Conditional Join: 0.011466 seconds = 11.466 ms
